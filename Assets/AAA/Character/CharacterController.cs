@@ -11,19 +11,18 @@ public class CharacterController : MonoBehaviour
     private MeshCollider meshCollider;
     private bool isGrounded;
     private bool isObstacle;
+    private int jumpCount;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         meshCollider = GetComponent<MeshCollider>();
-
     }
 
     void Update()
     {
         Move();
         Jump();
-        CheckDie();
     }
 
     private void Move()
@@ -33,21 +32,53 @@ public class CharacterController : MonoBehaviour
 
         Vector3 moveDirection = (transform.right * moveInputX) + (transform.forward * moveInputZ);
 
+        if (Input.GetButton("Crouch") && isGrounded)
+        {
+            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed/2, rb.linearVelocity.y, moveDirection.z * moveSpeed/2);
+            Debug.Log("Pressing c");
+        }
+
+        else if (Input.GetButton("Sprint") && isGrounded) 
+        { 
+            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed * 2, rb.linearVelocity.y, moveDirection.z * moveSpeed * 2);
+            Debug.Log("Pressing Left Shift");
+        }
+        else if (Input.GetButton("Jump") || !isGrounded)
+        {
+            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed / 2, rb.linearVelocity.y, moveDirection.z * moveSpeed / 2);
+        }
+
+        else
         rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed, rb.linearVelocity.y, moveDirection.z * moveSpeed);
 
     }
-
+    private void JumpCount ()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpCount++;
+        }
+    }
     private void Jump()
     {
         if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
+                jumpCount = 0;
                 Vector2 jumpVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y)));
                 rb.linearVelocity = jumpVelocity;
+                jumpCount++;
+            }
+            else if (jumpCount == 1)
+            {
+                Vector2 jumpVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y)));
+                rb.linearVelocity = jumpVelocity;
+                jumpCount = 0;
             }
         }
     }
+        
 
     private void CheckDie ()
     {
