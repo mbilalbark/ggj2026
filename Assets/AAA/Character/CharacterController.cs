@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpHeight = 10f;
     [SerializeField] private LayerMask groundLayer;
@@ -49,6 +48,7 @@ public class CharacterController : MonoBehaviour
             }
         }
     }
+
     private void CheckDie ()
     {
         if (isObstacle)
@@ -69,6 +69,7 @@ public class CharacterController : MonoBehaviour
             isGrounded = true;
         }
     }
+
     private void OnCollisionExit(Collision collision)
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "obstacleLayer")
