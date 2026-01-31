@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 16.24, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1.2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.024}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3538750859230259304}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -42,7 +42,7 @@ ParticleSystem:
   m_GameObject: {fileID: 2141660312124055289}
   serializedVersion: 8
   lengthInSec: 0.05
-  simulationSpeed: 1
+  simulationSpeed: 5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -4882,8 +4882,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.8}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.016}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3538750859230259304}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -4896,7 +4896,7 @@ ParticleSystem:
   m_GameObject: {fileID: 2609859236629225584}
   serializedVersion: 8
   lengthInSec: 0.05
-  simulationSpeed: 1
+  simulationSpeed: 5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -9733,9 +9733,9 @@ Transform:
   m_GameObject: {fileID: 8980808826876824216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: -8.44}
+  m_LocalScale: {x: 0.0002, y: 0.0002, z: 0.0002}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4151073188306991137}
   - {fileID: 5240686156863788984}
