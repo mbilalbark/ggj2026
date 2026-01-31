@@ -14,7 +14,11 @@ public class ObstacleCapsule : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && obstacle.GetIsActive())
         {
-            animator.SetBool("open", true);
+            if (animator != null)
+            {
+                animator.SetBool("open", true);
+            }
+            if (obstacle == null) return;
             obstacle.gameObject.SetActive(true);
             obstacle.OpenBehavior();
         }
