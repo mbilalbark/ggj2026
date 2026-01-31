@@ -1,10 +1,11 @@
+using System.Diagnostics;
 using UnityEngine;
+
 
 public class DirectionMoveObstacle : BaseObstacle
 {
-    [SerializeField] private Rigidbody rigidbody;
-
-    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private Animator animator;
+    private bool isMoving = false;
     public enum DirectionType 
     {
         left,
@@ -17,53 +18,23 @@ public class DirectionMoveObstacle : BaseObstacle
 
     public ObstacleBehavior behavior = ObstacleBehavior.DirectionalMove;
 
-    public void Start()
-    {
-        OpenBehavior();
-    }
-
     public override void OpenBehavior()
     {
         base.OpenBehavior();
         switch(direction)
         {
             case DirectionType.left:
+                animator.SetBool("moveLeft", true);
+                break;
             case DirectionType.right:
-                rigidbody.constraints = RigidbodyConstraints.FreezeAll & ~RigidbodyConstraints.FreezePositionX;
+                animator.SetBool("moveRight", true);
                 break;
             case DirectionType.up:
+                animator.SetBool("moveUp", true);
+                break;
             case DirectionType.down:
-                rigidbody.constraints = RigidbodyConstraints.FreezeAll & ~RigidbodyConstraints.FreezePositionY;
+                animator.SetBool("moveDown", true);
                 break;
         }
       }
-
-    public void SetDirectionType(DirectionType type)
-    {
-        direction = type;
-    }
-    void FixedUpdate()
-    {
-        if(isActive)
-        {
-            Vector3 moveDirection = Vector3.zero;
-            switch (direction)
-            {
-                case DirectionType.left:
-                    moveDirection = Vector3.left;
-                    break;
-                case DirectionType.right:
-                    moveDirection = Vector3.right;
-                    break;
-                case DirectionType.up:
-                    moveDirection = Vector3.up;
-                    break;
-                case DirectionType.down:
-                    moveDirection = Vector3.down;
-                    break;
-            }
-            rigidbody.MovePosition(rigidbody.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
-            
-        }
-    }
 }
