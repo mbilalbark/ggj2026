@@ -163,7 +163,7 @@ MonoBehaviour:
     m_Bits: 64
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
 --- !u!1 &5078119533334928068
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,3 +316,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   mouseSensitivity: 800
   playerBody: {fileID: 3964512813712621317}
+  normalHeight: 0.5
