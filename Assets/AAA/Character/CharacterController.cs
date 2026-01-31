@@ -6,6 +6,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpHeight = 10f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask obstacleLayer;
+    private int healtCount;
 
     private Rigidbody rb;
     private MeshCollider meshCollider;
@@ -25,6 +26,16 @@ public class CharacterController : MonoBehaviour
         Jump();
     }
 
+    public void SetHealthCount(int count)
+    {
+        healtCount = count;
+    }
+
+    public int GetHealthCount()
+    {
+        return healtCount;
+    }
+
     private void Move()
     {
         float moveInputX = Input.GetAxis("Horizontal");
@@ -34,12 +45,12 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetButton("Crouch") && isGrounded)
         {
-            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed/2, rb.linearVelocity.y, moveDirection.z * moveSpeed/2);
+            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed / 2, rb.linearVelocity.y, moveDirection.z * moveSpeed / 2);
             Debug.Log("Pressing c");
         }
 
-        else if (Input.GetButton("Sprint") && isGrounded) 
-        { 
+        else if (Input.GetButton("Sprint") && isGrounded)
+        {
             rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed * 2, rb.linearVelocity.y, moveDirection.z * moveSpeed * 2);
             Debug.Log("Pressing Left Shift");
         }
@@ -47,11 +58,13 @@ public class CharacterController : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed / 2, rb.linearVelocity.y, moveDirection.z * moveSpeed / 2);
         }
-
         else
-        rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed, rb.linearVelocity.y, moveDirection.z * moveSpeed);
+        {
+            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed, rb.linearVelocity.y, moveDirection.z * moveSpeed);
+        }
 
     }
+
     private void JumpCount ()
     {
         if (Input.GetButtonDown("Jump"))
@@ -59,6 +72,7 @@ public class CharacterController : MonoBehaviour
             jumpCount++;
         }
     }
+
     private void Jump()
     {
         if (Input.GetButtonDown("Jump"))
@@ -66,33 +80,25 @@ public class CharacterController : MonoBehaviour
             if (isGrounded)
             {
                 jumpCount = 0;
-                Vector2 jumpVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y)));
+                var jumpVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y)));
                 rb.linearVelocity = jumpVelocity;
                 jumpCount++;
             }
             else if (jumpCount == 1)
             {
-                Vector2 jumpVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y)));
+                var jumpVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y)));
                 rb.linearVelocity = jumpVelocity;
                 jumpCount = 0;
             }
         }
-    }
-        
-
-    private void CheckDie ()
-    {
-        if (isObstacle)
-        {
-            Debug.Log("YANDIN");
-        }
-    }
+    }   
 
     private void OnCollisionEnter(Collision collision)
     {
         if ((obstacleLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
             isObstacle = true;
+            healtCount -= 1;
         }
 
         if ((groundLayer.value & (1 << collision.gameObject.layer)) > 0)
