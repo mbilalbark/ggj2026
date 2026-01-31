@@ -2,9 +2,77 @@ using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] private CanvasGroup[] screens;
+    [SerializeField] private GameUI gameUI;
     public void Initialize()
     {
+        screens[0].alpha = 1;
+        screens[0].interactable = true;
+        screens[0].blocksRaycasts = true;
+    }
 
+    private void OpenMenu()
+    {
+        
+    }
+
+    public void OnStartLevel()
+    {
+        print("OnStartLevel");
+        LevelManager.Instance.Initialize();
+        OpenGameScreen();
+    }
+
+    public void Test()
+    {
+        print("Test");
+    }
+
+    public void TakeHit()
+    {
+        gameUI.RemoveHeart();
+    }
+    
+    public void GoToMainMenu()
+    {
+        foreach (var screen in  screens)
+        {
+            screen.alpha = 0;
+            screen.interactable = false;
+            screen.blocksRaycasts = false;
+        }
+        
+        screens[0].alpha = 1;
+        screens[0].interactable = true;
+        screens[0].blocksRaycasts = true;
+    }
+
+    public void OpenGameScreen()
+    {
+        foreach (var screen in  screens)
+        {
+            screen.alpha = 0;
+            screen.interactable = false;
+            screen.blocksRaycasts = false;
+        }
+        
+        screens[2].alpha = 1;
+        screens[2].interactable = true;
+        screens[2].blocksRaycasts = true;
+    }
+
+    public void OnRestartLevel()
+    {
+        foreach (var screen in  screens)
+        {
+            screen.alpha = 0;
+            screen.interactable = false;
+            screen.blocksRaycasts = false;
+        }
+        
+        screens[2].alpha = 1;
+        screens[2].interactable = true;
+        screens[2].blocksRaycasts = true;
     }
 
 

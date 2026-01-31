@@ -6,6 +6,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpHeight = 10f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask obstacleLayer;
+    [SerializeField] private Transform characterCameraPoint;
     private int healtCount;
 
     private Rigidbody rb;
@@ -13,19 +14,26 @@ public class CharacterController : MonoBehaviour
     private bool isGrounded;
     private bool isObstacle;
     private int jumpCount;
+    private bool isAlive = true;
 
     void Start()
     {
+        isAlive = true;
         rb = GetComponent<Rigidbody>();
         meshCollider = GetComponent<MeshCollider>();
     }
 
     void Update()
     {
+        if (!isAlive) return;
         Move();
         Jump();
     }
 
+    public Transform GetCharacterCameraPoint()
+    {
+        return characterCameraPoint;
+    }
     public void SetHealthCount(int count)
     {
         healtCount = count;
@@ -98,7 +106,7 @@ public class CharacterController : MonoBehaviour
         if ((obstacleLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
             isObstacle = true;
-            healtCount -= 1;
+            TakeHitCharacter();
         }
 
         if ((groundLayer.value & (1 << collision.gameObject.layer)) > 0)
@@ -117,6 +125,19 @@ public class CharacterController : MonoBehaviour
         if (LayerMask.LayerToName(collision.gameObject.layer) == "groundLayer")
         {
             isGrounded = false; 
+        }
+    }
+    
+    private void TakeHitCharacter()
+    {
+        healtCount -= 1;
+        if (healtCount <= 0)
+        {
+            isAlive = false;
+        }
+        else
+        {
+            UIManager.Instance.TakeHit();
         }
     }
 }

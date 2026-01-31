@@ -3,18 +3,60 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
-    public Transform playerBody;
+    
+    private Transform characterCameraPoint;
+    private CharacterController characterController;
+    private bool isFollowing = false;
 
-    float xRotation = 0f;
-
-    public float normalHeight = 0.5f;
+    private float xRotation = 0f;
+    private float yRotation = 0f;
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     void Update()
+    {
+        if (!isFollowing)
+        {
+            TryFindCharacter();
+            return;
+        }
+
+        if (characterController == null || characterCameraPoint == null)
+        {
+            isFollowing = false;
+            return;
+        }
+
+        FollowCharacter();
+        HandleMouseLook();
+    }
+
+    void TryFindCharacter()
+    {
+        characterController = FindObjectOfType<CharacterController>();
+        
+        if (characterController != null)
+        {
+            characterCameraPoint = characterController.GetCharacterCameraPoint();
+            
+            if (characterCameraPoint != null)
+            {
+                isFollowing = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                yRotation = characterController.transform.eulerAngles.y;
+            }
+        }
+    }
+
+    void FollowCharacter()
+    {
+        transform.position = characterCameraPoint.position;
+    }
+
+    void HandleMouseLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -22,21 +64,27 @@ public class CameraController : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        yRotation += mouseX;
 
-        Crouch();
+        // Kameranın hem yatay hem dikey rotasyonunu ayarla
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        
+        // Karakteri de aynı yatay rotasyona ayarla (hareket yönü için)
+        characterController.transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
     }
 
-    void Crouch()
+    public void SetCharacter(CharacterController controller)
     {
-        if (Input.GetButton("Crouch"))
-        {
-            transform.localPosition = new Vector3(transform.localPosition.x, normalHeight/2, transform.localPosition.z);
-        }
-        else
-        {
-            transform.localPosition = new Vector3(transform.localPosition.x, normalHeight, transform.localPosition.z);
-        }
+        characterController = controller;
+        characterCameraPoint = controller.GetCharacterCameraPoint();
+        yRotation = controller.transform.eulerAngles.y;
+        isFollowing = true;
+    }
+
+    public void ClearCharacter()
+    {
+        characterController = null;
+        characterCameraPoint = null;
+        isFollowing = false;
     }
 }

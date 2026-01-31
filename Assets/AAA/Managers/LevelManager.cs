@@ -18,6 +18,7 @@ public class LevelManager : Singleton<LevelManager>
     private void LoadLevel(int levelIndex)
     {
         var level = Instantiate(levels[levelIndex]) as Level;
+        print("LoadLevel");
         level.Initialize();
     }
 
@@ -35,8 +36,18 @@ public class LevelManager : Singleton<LevelManager>
     {
         
     }
-    
 
+    public void ReStartLevel()
+    {
+        var level = Instantiate(levels[currentLevelIndex]) as Level;
+        level.Initialize();
+    }
 
+    public void GoToNextLevel()
+    {
+        UnloadLevel(currentLevelIndex);
+        currentLevelIndex = (currentLevelIndex + 1) % levels.Length;
+        LoadLevel(currentLevelIndex);
+    }
 }
 

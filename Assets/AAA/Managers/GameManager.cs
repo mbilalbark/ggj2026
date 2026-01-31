@@ -9,6 +9,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        LevelManager.Instance.Initialize();
+        UIManager.Instance.Initialize();
     }
 }
