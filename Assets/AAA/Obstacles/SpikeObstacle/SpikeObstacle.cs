@@ -3,6 +3,7 @@ using static DirectionMoveObstacle;
 
 public class SpikeObstacle : BaseObstacle
 {
+    [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private float moveSpeed = 2f;
     public enum SpikeDirection
     {
@@ -24,8 +25,8 @@ public class SpikeObstacle : BaseObstacle
         base.OpenBehavior();
         switch (direction)
         {
-            case direction.up:
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll & ~RigidbodyConstraints.FreezePositionY;
+            case SpikeDirection.up:
+                rigidbody.constraints = RigidbodyConstraints.FreezeAll & ~RigidbodyConstraints.FreezePositionY;
                 break;
         }
     }
@@ -46,7 +47,7 @@ public class SpikeObstacle : BaseObstacle
                     break;
 
             }
-
+            rigidbody.MovePosition(rigidbody.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
 
         }
     }
