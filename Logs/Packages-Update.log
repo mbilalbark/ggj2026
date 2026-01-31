@@ -112,3 +112,15 @@ The following packages were updated:
   com.unity.shadergraph from version 17.0.3 to 17.3.0
 The following packages were removed:
   com.unity.rendering.light-transport@1.0.1
+
+=== Sat Jan 31 03:09:29 2026
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.render-pipelines.universal from version 17.0.3 to 17.3.0
+  com.unity.render-pipelines.core from version 17.0.3 to 17.3.0
+  com.unity.shadergraph from version 17.0.3 to 17.3.0
+The following packages were removed:
+  com.unity.rendering.light-transport@1.0.1
