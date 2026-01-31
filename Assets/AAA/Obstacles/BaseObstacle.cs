@@ -24,14 +24,5 @@ public class BaseObstacle : MonoBehaviour
     {
         isActive = true;
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("ground") && isActive)
-        {
-            SetIsActive(false);
-        }
-
-    }
-
 
 }
