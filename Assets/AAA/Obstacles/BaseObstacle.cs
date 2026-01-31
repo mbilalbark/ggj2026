@@ -11,7 +11,7 @@ public class BaseObstacle : MonoBehaviour
         DirectionalMove
     }
 
-    protected bool isActive = false;
+    protected bool isActive = true;
     public bool GetIsActive()
     {
         return isActive;
