@@ -8,7 +8,9 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayer;
     [SerializeField] private Transform characterCameraPoint;
     private int healtCount;
+    [SerializeField] private Transform characterTransform;
 
+    
     private Rigidbody rb;
     private MeshCollider meshCollider;
     private bool isGrounded;
@@ -34,6 +36,12 @@ public class CharacterController : MonoBehaviour
     {
         return characterCameraPoint;
     }
+
+    public Transform GetCharacterPoint() 
+    { 
+        return characterTransform; 
+    }
+
     public void SetHealthCount(int count)
     {
         healtCount = count;
@@ -51,15 +59,22 @@ public class CharacterController : MonoBehaviour
 
         Vector3 moveDirection = (transform.right * moveInputX) + (transform.forward * moveInputZ);
         
-        // Normalize direction vektörü
         if (moveDirection.magnitude > 0)
         {
             moveDirection = moveDirection.normalized;
         }
 
         float currentSpeed = moveSpeed;
+        if (Input.GetButtonDown("Crouch") && isGrounded)
+        {
+            characterTransform.localScale *= 0.5f;
+        }
 
-        // Hız ayarlamaları
+        if (Input.GetButtonUp("Crouch") && isGrounded)
+        {
+            characterTransform.localScale *= 2f;
+        }
+
         if (Input.GetButton("Crouch") && isGrounded)
         {
             currentSpeed = moveSpeed * 0.5f;
@@ -70,17 +85,15 @@ public class CharacterController : MonoBehaviour
         }
         else if (!isGrounded)
         {
-            currentSpeed = moveSpeed * 0.5f; // Havada daha yavaş hareket
+            currentSpeed = moveSpeed * 0.5f; 
         }
 
-        // Yalnızca horizontal hızı güncelle, vertical hızı koru
         rb.linearVelocity = new Vector3(
             moveDirection.x * currentSpeed, 
             rb.linearVelocity.y, 
             moveDirection.z * currentSpeed
         );
     }
-
     private void Jump()
     {
         if (Input.GetButtonDown("Jump"))

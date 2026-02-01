@@ -165,6 +165,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   characterCameraPoint: {fileID: 4778865649779652692}
+  characterTransform: {fileID: 3964512813712621317}
 --- !u!1 &5397758160383290397
 GameObject:
   m_ObjectHideFlags: 0
