@@ -3,7 +3,6 @@ using UnityEngine;
 public class ObstacleCapsule : MonoBehaviour
 {
    [SerializeField] private BaseObstacle obstacle;
-   [SerializeField] private Animator animator;
 
     public void Initialize(bool isActive)
     {
@@ -13,11 +12,7 @@ public class ObstacleCapsule : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && obstacle.GetIsActive())
-        {
-            if (animator != null)
-            {
-                animator.SetBool("open", true);
-            }
+        { Debug.Log("Player entered ObstacleCapsule trigger.");
             if (obstacle == null) return;
             obstacle.gameObject.SetActive(true);
             obstacle.OpenBehavior();

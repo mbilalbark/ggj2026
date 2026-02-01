@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleCapsule
   obstacle: {fileID: 5953320111259637841}
-  animator: {fileID: 0}
 --- !u!1001 &8560934809083389008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7397559802898711201, guid: 7be0ed01ec090d14288c89ddb3ecd601, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7397559802898711201, guid: 7be0ed01ec090d14288c89ddb3ecd601, type: 3}
       propertyPath: m_LocalPosition.y
