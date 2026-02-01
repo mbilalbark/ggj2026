@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 437882140277375096, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 437882140277375096, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -80,6 +80,14 @@ PrefabInstance:
     - target: {fileID: 5309888670778088603, guid: 39f2d8356d7e8f64689963f92083c465, type: 3}
       propertyPath: m_Name
       value: FallFloor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898724576400292898, guid: 39f2d8356d7e8f64689963f92083c465, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898724576400292898, guid: 39f2d8356d7e8f64689963f92083c465, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6253353634513807021, guid: 39f2d8356d7e8f64689963f92083c465, type: 3}
       propertyPath: m_LocalPosition.x

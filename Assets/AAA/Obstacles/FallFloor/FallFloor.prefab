@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FallFloor
   fallRigidbodies:
   - {fileID: 6984006023903039368}
-  fallDelay: 3
+  fallDelay: 1
 --- !u!1 &6453746363832592142
 GameObject:
   m_ObjectHideFlags: 0

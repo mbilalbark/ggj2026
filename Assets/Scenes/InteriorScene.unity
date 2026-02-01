@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.20064971, g: 0.21595176, b: 0.254717, a: 1}
+  m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   levels:
-  - {fileID: 1629941620449133615, guid: 9c6ed0b71a357d84a916cbe80f2675a3, type: 3}
+  - {fileID: 3364585552958581721, guid: 57b9ec0e342fb124ab57aa46cf0c4247, type: 3}
 --- !u!4 &281339125
 Transform:
   m_ObjectHideFlags: 0
