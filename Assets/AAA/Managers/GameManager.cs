@@ -10,6 +10,6 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         UIManager.Instance.Initialize();
-        SoundManager.Instance.PlayGameMusic();
+        //SoundManager.Instance.PlayGameMusic();
     }
 }

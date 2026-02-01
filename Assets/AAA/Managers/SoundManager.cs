@@ -51,6 +51,7 @@ public class SoundManager : MonoBehaviour
         {
             if (!sfxDictionary.ContainsKey(sfx.name))
             {
+                //print();
                 sfxDictionary.Add(sfx.name, sfx.clip);
             }
         }
@@ -155,13 +156,13 @@ public class SoundManager : MonoBehaviour
 
     private void LoadVolumeSettings()
     {
-        bgVolume = PlayerPrefs.GetFloat("BGVolume", 1f);
-        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
-
-        bgMusicSource.mute = PlayerPrefs.GetInt("BGMusicOn", 1) == 0;
-        sfxSource.mute = PlayerPrefs.GetInt("SFXOn", 1) == 0;
-
-        bgMusicSource.volume = bgVolume;
+        // bgVolume = PlayerPrefs.GetFloat("BGVolume", 1f);
+        // sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        //
+        // bgMusicSource.mute = PlayerPrefs.GetInt("BGMusicOn", 1) == 0;
+        // sfxSource.mute = PlayerPrefs.GetInt("SFXOn", 1) == 0;
+        //
+        // bgMusicSource.volume = bgVolume;
     }
 
     #endregion
