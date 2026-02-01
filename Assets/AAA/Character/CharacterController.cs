@@ -50,35 +50,35 @@ public class CharacterController : MonoBehaviour
         float moveInputZ = Input.GetAxis("Vertical");
 
         Vector3 moveDirection = (transform.right * moveInputX) + (transform.forward * moveInputZ);
+        
+        // Normalize direction vektörü
+        if (moveDirection.magnitude > 0)
+        {
+            moveDirection = moveDirection.normalized;
+        }
 
+        float currentSpeed = moveSpeed;
+
+        // Hız ayarlamaları
         if (Input.GetButton("Crouch") && isGrounded)
         {
-            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed / 2, rb.linearVelocity.y, moveDirection.z * moveSpeed / 2);
-            Debug.Log("Pressing c");
+            currentSpeed = moveSpeed * 0.5f;
         }
-
         else if (Input.GetButton("Sprint") && isGrounded)
         {
-            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed * 2, rb.linearVelocity.y, moveDirection.z * moveSpeed * 2);
-            Debug.Log("Pressing Left Shift");
+            currentSpeed = moveSpeed * 2f;
         }
-        else if (Input.GetButton("Jump") || !isGrounded)
+        else if (!isGrounded)
         {
-            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed / 2, rb.linearVelocity.y, moveDirection.z * moveSpeed / 2);
-        }
-        else
-        {
-            rb.linearVelocity = new Vector3(moveDirection.x * moveSpeed, rb.linearVelocity.y, moveDirection.z * moveSpeed);
+            currentSpeed = moveSpeed * 0.5f; // Havada daha yavaş hareket
         }
 
-    }
-
-    private void JumpCount ()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpCount++;
-        }
+        // Yalnızca horizontal hızı güncelle, vertical hızı koru
+        rb.linearVelocity = new Vector3(
+            moveDirection.x * currentSpeed, 
+            rb.linearVelocity.y, 
+            moveDirection.z * currentSpeed
+        );
     }
 
     private void Jump()
@@ -88,20 +88,20 @@ public class CharacterController : MonoBehaviour
             if (isGrounded)
             {
                 jumpCount = 0;
-                var jumpVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y)));
-                rb.linearVelocity = jumpVelocity;
+                float jumpVelocity = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics.gravity.y));
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
                 jumpCount++;
             }
             else if (jumpCount == 1)
             {
-                var jumpVelocity = new Vector2(rb.linearVelocity.x, Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y)));
-                rb.linearVelocity = jumpVelocity;
+                float jumpVelocity = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics.gravity.y));
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
                 jumpCount = 0;
             }
         }
     }   
 
-    private void OnCollisionEnter(Collision collision)
+        private void OnCollisionEnter(Collision collision)
     {
         if ((obstacleLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
@@ -117,14 +117,15 @@ public class CharacterController : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (LayerMask.LayerToName(collision.gameObject.layer) == "obstacleLayer")
+        
+        if ((groundLayer.value & (1 << collision.gameObject.layer)) > 0 && transform.position.y > 1.6f) 
         {
-            isObstacle = false;
+            isGrounded = false;
         }
 
-        if (LayerMask.LayerToName(collision.gameObject.layer) == "groundLayer")
+        if ((obstacleLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
-            isGrounded = false; 
+            isObstacle = false;
         }
     }
     
