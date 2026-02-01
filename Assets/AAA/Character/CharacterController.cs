@@ -20,6 +20,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
+        healtCount = 3;
         isAlive = true;
         rb = GetComponent<Rigidbody>();
         meshCollider = GetComponent<MeshCollider>();
@@ -119,12 +120,16 @@ public class CharacterController : MonoBehaviour
         if ((obstacleLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
             isObstacle = true;
-            TakeHitCharacter();
+            TakeHitCharacter(); 
         }
 
         if ((groundLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
             isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("finishWall"))
+        {
+            LevelManager.Instance.GoToNextLevel();
         }
     }
 
@@ -144,14 +149,12 @@ public class CharacterController : MonoBehaviour
     
     private void TakeHitCharacter()
     {
+        UIManager.Instance.TakeHit();
         healtCount -= 1;
         if (healtCount <= 0)
         {
             isAlive = false;
-        }
-        else
-        {
-            UIManager.Instance.TakeHit();
+            LevelManager.Instance.ReStartLevel();
         }
     }
 }

@@ -15,8 +15,8 @@ public class GameUI : MonoBehaviour
     
     public void RemoveHeart()
     {
-        currentHeartIndex  = (currentHeartIndex + 1) % hearts.Length;
         hearts[currentHeartIndex].alpha = 0.3f;
+        currentHeartIndex++;
     }
 
     public void Test()

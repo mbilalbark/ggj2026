@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
 {
+    private Level currentLevel;
+    
     [SerializeField] private Level[] levels;
     private int currentLevelIndex = -1;
-    protected override void Awake()
-    {
-        base.Awake();
-    }
 
     public void Initialize()
     {
@@ -17,35 +15,25 @@ public class LevelManager : Singleton<LevelManager>
 
     private void LoadLevel(int levelIndex)
     {
-        var level = Instantiate(levels[levelIndex]) as Level;
+        currentLevel = Instantiate(levels[levelIndex]) as Level;
         print("LoadLevel");
-        level.Initialize();
+        currentLevel.Initialize();
     }
 
-    private void UnloadLevel(int levelIndex)
+    private void UnloadLevel()
     {
-        
-    }
-
-    private void OpenLevel(int levelIndex)
-    {
-        
-    }
-
-    public void LevelOver() 
-    {
-        
+        Destroy(currentLevel.gameObject);
     }
 
     public void ReStartLevel()
     {
-        var level = Instantiate(levels[currentLevelIndex]) as Level;
-        level.Initialize();
+        UnloadLevel();
+        LoadLevel(currentLevelIndex);
     }
 
     public void GoToNextLevel()
     {
-        UnloadLevel(currentLevelIndex);
+        UnloadLevel();
         currentLevelIndex = (currentLevelIndex + 1) % levels.Length;
         LoadLevel(currentLevelIndex);
     }

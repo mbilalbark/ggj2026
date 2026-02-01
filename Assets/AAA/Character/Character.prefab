@@ -163,7 +163,7 @@ MonoBehaviour:
     m_Bits: 64
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   characterCameraPoint: {fileID: 4778865649779652692}
   characterTransform: {fileID: 3964512813712621317}
 --- !u!1 &5397758160383290397
