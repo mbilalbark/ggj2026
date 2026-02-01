@@ -184,7 +184,7 @@ MonoBehaviour:
   wobbleAmount: 0.1
   rotationWobble: 5
   yRotationOffset: -90
-  animator: {fileID: 0}
+  animator: {fileID: 2231690971870853249}
 --- !u!1001 &2690476219189424442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,6 +254,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dfbecd716bd29a4d9950eb72625387f, type: 3}
+--- !u!95 &2231690971870853249 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4300641603646982587, guid: 5dfbecd716bd29a4d9950eb72625387f, type: 3}
+  m_PrefabInstance: {fileID: 2690476219189424442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9094800028316566270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6584620742316291012, guid: 5dfbecd716bd29a4d9950eb72625387f, type: 3}
