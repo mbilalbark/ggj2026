@@ -17,8 +17,6 @@ public class LevelManager : Singleton<LevelManager>
         currentLevel = Instantiate(levels[levelIndex]) as Level;
         print("LoadLevel");
         currentLevel.Initialize();
-        var characterController = FindObjectOfType<CharacterController>();
-        characterController.healtCount = 3;
     }
 
     private void UnloadLevel()
