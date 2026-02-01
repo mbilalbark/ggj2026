@@ -146,11 +146,29 @@ public class CharacterController : MonoBehaviour
             isObstacle = false;
         }
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("obstacleCapsul") && other.gameObject.GetComponent<ObstacleCapsule>().GetIsActive())
+        {
+            var maskController = FindObjectOfType<MaskController>();
+            if (maskController != null)
+            {
+                maskController.SetOnTriggerAnimation("sad");
+            }
+        }
+    }
+
     private void TakeHitCharacter()
     {
         UIManager.Instance.TakeHit();
         healtCount -= 1;
+        
+        var maskController = FindObjectOfType<MaskController>();
+        if (maskController != null)
+        {
+            maskController.SetOnTriggerAnimation("angry");
+        }
         if (healtCount <= 0)
         {
             isAlive = false;

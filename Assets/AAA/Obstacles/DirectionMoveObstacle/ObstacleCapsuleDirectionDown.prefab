@@ -66,6 +66,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7473438486190450196, guid: bbe09d1471d974d448b5c1bdd7431665, type: 3}
   m_PrefabInstance: {fileID: 555076319210965580}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9155094993544783910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8699099177201476202, guid: bbe09d1471d974d448b5c1bdd7431665, type: 3}
+  m_PrefabInstance: {fileID: 555076319210965580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c43a71b64ecc134f9128db422738693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DirectionMoveObstacle
 --- !u!1001 &1013041317597927886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,10 +129,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstacleCapsuleDirectionDown
       objectReference: {fileID: 0}
+    - target: {fileID: 3467872531882226396, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
+      propertyPath: m_TagString
+      value: obstagleCapsul
+      objectReference: {fileID: 0}
     - target: {fileID: 5972979025615137247, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5972979025615137247, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
+      propertyPath: obstacle
+      value: 
+      objectReference: {fileID: 9155094993544783910}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

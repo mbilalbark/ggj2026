@@ -9,6 +9,11 @@ public class ObstacleCapsule : MonoBehaviour
         obstacle.SetIsActive(isActive);
     }
 
+    public bool GetIsActive()
+    {
+        return obstacle.GetIsActive();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && obstacle.GetIsActive())

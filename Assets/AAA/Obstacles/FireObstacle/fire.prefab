@@ -216,7 +216,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 2680.66
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.9365837e+31, y: 2.8957547e+32, z: 8.823318e+12, w: 7.9316175e+34}
+  m_BoundingSphereOverride: {x: 1.9788e-41, y: 0, z: 0, w: 1e-45}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -305,6 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FireObstacle
   boxCollider: {fileID: 6016339219275366426}
   fire: {fileID: 4262828945932036074}
+  lights: []
 --- !u!54 &7413187212952392826
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -361,18 +362,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4028277118125104596}
     m_Modifications:
-    - target: {fileID: 391786171326124670, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: m_CastShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 391786171326124670, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: m_LightProbeUsage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 391786171326124670, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: m_StaticShadowCaster
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7519137534355803524, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -421,34 +410,6 @@ PrefabInstance:
       propertyPath: LightsModule.light
       value: 
       objectReference: {fileID: 4306066537006008108}
-    - target: {fileID: 8942136348348846146, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: LightsModule.ratio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942136348348846146, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: LightsModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942136348348846146, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: LightsModule.maxLights
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942136348348846146, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942136348348846146, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: LightsModule.intensityCurve.minScalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942136348348846146, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: LightsModule.rangeCurve.maxCurve.m_Curve.Array.data[0].time
-      value: 0.038959503
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942136348348846146, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
-      propertyPath: LightsModule.rangeCurve.maxCurve.m_Curve.Array.data[0].value
-      value: 0.6307697
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
