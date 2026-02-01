@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3467872531882226396, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
       propertyPath: m_Name
-      value: ObstacleCapsuleDirection
+      value: ObstacleCapsuleDirectionUpper
       objectReference: {fileID: 0}
     - target: {fileID: 5972979025615137247, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
       propertyPath: animator
@@ -87,11 +87,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3254672918574057317, guid: cca79bcab21138e408374525fe8a928a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3254672918574057317, guid: cca79bcab21138e408374525fe8a928a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3254672918574057317, guid: cca79bcab21138e408374525fe8a928a, type: 3}
       propertyPath: m_LocalPosition.z

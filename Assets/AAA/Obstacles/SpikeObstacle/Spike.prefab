@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 3.85, y: 0.2, z: 0}
-  m_LocalScale: {x: 100, y: 99.999985, z: 5.4999986}
+  m_LocalScale: {x: 100, y: 100, z: 5.499998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae8c5fc304d55841a4eb7312e5dc3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikeObstacle
-  animator: {fileID: 0}
+  animator: {fileID: 575623107488686348}
 --- !u!95 &575623107488686348
 Animator:
   serializedVersion: 7
