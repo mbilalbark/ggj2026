@@ -66,13 +66,43 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 437882140277375096, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5621367146675473582}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3467872531882226396, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4547024598489613259}
   m_SourcePrefab: {fileID: 100100000, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
 --- !u!4 &584518843621136822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 437882140277375096, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
   m_PrefabInstance: {fileID: 1013041317597927886}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4480888148256844562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3467872531882226396, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
+  m_PrefabInstance: {fileID: 1013041317597927886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4547024598489613259
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4480888148256844562}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c2c10135e8c5ef243a3e5edc8883272d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7145506598135548875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,13 +115,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: DirectionalMoveObstacleHuge Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 13818016869829835, guid: cca79bcab21138e408374525fe8a928a, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3254672918574057317, guid: cca79bcab21138e408374525fe8a928a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3254672918574057317, guid: cca79bcab21138e408374525fe8a928a, type: 3}
       propertyPath: m_LocalPosition.y
