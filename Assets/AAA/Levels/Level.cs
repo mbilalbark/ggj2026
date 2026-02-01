@@ -13,16 +13,10 @@ public class Level : MonoBehaviour
 
     private void OpenRandomObstacle()
     {
-        for (int i = 0; i < obstaclesToOpen; i++)
+        print(obstacleCapsules.Length);
+        for (int i = 0; i < obstacleCapsules.Length; i++)
         {
-            var randomIndex = -1;
-            do 
-            {
-                randomIndex = Random.Range(0, obstacleCapsules.Length);
-            }while (ObstacleIndicesOpened.Contains(randomIndex));
-
-            obstacleCapsules[randomIndex].Initialize(true);
-            ObstacleIndicesOpened.Add(randomIndex); 
+            obstacleCapsules[i].Initialize(true);
         }
     }
 }
