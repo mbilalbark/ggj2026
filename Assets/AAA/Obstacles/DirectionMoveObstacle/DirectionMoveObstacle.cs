@@ -36,5 +36,6 @@ public class DirectionMoveObstacle : BaseObstacle
                 animator.SetBool("moveDown", true);
                 break;
         }
+        SoundManager.Instance.PlaySFX("directionMove");
       }
 }

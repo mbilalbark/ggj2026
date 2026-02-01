@@ -14,6 +14,7 @@ public class FireObstacle : BaseObstacle
             fire.Play();
             foreach (GameObject light in lights)
             {
+                SoundManager.Instance.PlaySFX("fire");
                 light.SetActive(true);
             }
         }

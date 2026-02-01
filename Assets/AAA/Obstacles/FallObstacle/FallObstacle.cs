@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FallObstacle : BaseObstacle
@@ -12,7 +13,16 @@ public class FallObstacle : BaseObstacle
         {
             rb.isKinematic = false;
         }
-    } 
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("groundLayer"))
+        {
+            SoundManager.Instance.PlaySFX("fall");
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))

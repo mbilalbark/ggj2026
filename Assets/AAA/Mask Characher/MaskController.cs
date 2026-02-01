@@ -59,7 +59,7 @@ public class MaskController : MonoBehaviour
 
     void TryFindCamera()
     {
-        Camera mainCam = Camera.main;
+        var mainCam = Camera.main;
         if (mainCam != null)
         {
             cameraTransform = mainCam.transform;
@@ -68,7 +68,7 @@ public class MaskController : MonoBehaviour
             return;
         }
 
-        CameraController camController = FindObjectOfType<CameraController>();
+        var camController = FindObjectOfType<CameraController>();
         if (camController != null)
         {
             cameraTransform = camController.transform;
@@ -149,6 +149,7 @@ public class MaskController : MonoBehaviour
             
             if (isCameraFound && cameraTransform != null)
             {
+                SoundManager.Instance.PlaySFX("mask");
                 yield return StartCoroutine(AppearAndTroll());
             }
         }

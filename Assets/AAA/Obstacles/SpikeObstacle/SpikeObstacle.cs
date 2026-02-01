@@ -11,7 +11,7 @@ public class SpikeObstacle : BaseObstacle
         if (animator != null)
         {
             animator.SetBool("openspike", true);
-            Debug.Log("SpikeObstacle OpenBehavior called, animator set to openspike true.");
+            SoundManager.Instance.PlaySFX("spike");
         }
     }
 }

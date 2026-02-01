@@ -15,6 +15,7 @@ public class FallFloor : BaseObstacle
         {
             yield return new WaitForSeconds(fallDelay);
             rb.isKinematic = false;
+            SoundManager.Instance.PlaySFX("broke");
         }
     }
 
