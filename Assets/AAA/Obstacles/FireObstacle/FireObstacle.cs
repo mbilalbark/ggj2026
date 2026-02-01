@@ -10,15 +10,8 @@ public class FireObstacle : BaseObstacle
         if (boxCollider != null)
         {
             boxCollider.enabled = true;
+            fire.Play();
         }
-        fire.Play();
+       
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            OpenBehavior();
-        }
-    }
-
 }

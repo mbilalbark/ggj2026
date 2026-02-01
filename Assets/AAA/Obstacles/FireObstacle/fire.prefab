@@ -105,6 +105,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4028277118125104596}
     m_Modifications:
+    - target: {fileID: 2210027513890157914, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7519137534355803524, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -148,6 +152,10 @@ PrefabInstance:
     - target: {fileID: 8501337630677702101, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
       propertyPath: m_Name
       value: Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942136348348846146, guid: 16b112c40e5ab5b4cb08219cbebd9580, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

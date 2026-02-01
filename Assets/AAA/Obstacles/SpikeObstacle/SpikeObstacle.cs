@@ -1,4 +1,16 @@
 using UnityEngine;
 using static DirectionMoveObstacle;
 
-public class SpikeObstacle : BaseObstacle {}
+public class SpikeObstacle : BaseObstacle
+{
+    [SerializeField] private Animator animator;
+
+     public override void OpenBehavior()
+    {
+        base.OpenBehavior();
+        if (animator != null)
+        {
+            animator.SetBool("openspike", true);
+        }
+    }
+}

@@ -113,8 +113,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.020958008, y: 0.020797633, z: 0.1829461}
-  m_Center: {x: -0.0002495339, y: -0.00024404791, z: 0.07180157}
+  m_Size: {x: 0.020958008, y: 0.020797633, z: 0.05}
+  m_Center: {x: -0.0002495339, y: -0.00024404791, z: 0.02}
 --- !u!114 &1030758430660283841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae8c5fc304d55841a4eb7312e5dc3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikeObstacle
+  animator: {fileID: 0}
 --- !u!95 &575623107488686348
 Animator:
   serializedVersion: 7

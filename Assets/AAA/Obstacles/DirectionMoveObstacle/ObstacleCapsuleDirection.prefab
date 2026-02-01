@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 5972979025615137247, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 3911965682945864198}
+      objectReference: {fileID: 0}
     - target: {fileID: 5972979025615137247, guid: 0a491d755f0ee4141a521c64b8604dd3, type: 3}
       propertyPath: obstacle
       value: 
@@ -130,11 +130,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cca79bcab21138e408374525fe8a928a, type: 3}
---- !u!95 &3911965682945864198 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6153017064653453773, guid: cca79bcab21138e408374525fe8a928a, type: 3}
-  m_PrefabInstance: {fileID: 7145506598135548875}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5621367146675473582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3254672918574057317, guid: cca79bcab21138e408374525fe8a928a, type: 3}
