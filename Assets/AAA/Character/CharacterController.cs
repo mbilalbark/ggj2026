@@ -7,7 +7,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask obstacleLayer;
     [SerializeField] private Transform characterCameraPoint;
-    private int healtCount;
+    public int healtCount;
     [SerializeField] private Transform characterTransform;
 
     
