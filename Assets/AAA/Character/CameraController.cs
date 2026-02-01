@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour
             if (characterCameraPoint != null)
             {
                 isFollowing = true;
-                Cursor.lockState = CursorLockMode.Locked;
+               
                 yRotation = characterController.transform.eulerAngles.y;
             }
         }

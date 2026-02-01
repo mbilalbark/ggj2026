@@ -172,7 +172,8 @@ public class CharacterController : MonoBehaviour
         if (healtCount <= 0)
         {
             isAlive = false;
-            LevelManager.Instance.ReStartLevel();
+            UIManager.Instance.OpenRestartMenu();
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }

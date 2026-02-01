@@ -21,11 +21,21 @@ public class UIManager : Singleton<UIManager>
         print("OnStartLevel");
         LevelManager.Instance.Initialize();
         OpenGameScreen();
+        gameUI.Initialize();
     }
 
-    public void Test()
+    public void OpenRestartMenu()
     {
-        print("Test");
+        foreach (var screen in  screens)
+        {
+            screen.alpha = 0;
+            screen.interactable = false;
+            screen.blocksRaycasts = false;
+        }
+        
+        screens[1].alpha = 1;
+        screens[1].interactable = true;
+        screens[1].blocksRaycasts = true;
     }
 
     public void TakeHit()
@@ -73,7 +83,8 @@ public class UIManager : Singleton<UIManager>
         screens[2].alpha = 1;
         screens[2].interactable = true;
         screens[2].blocksRaycasts = true;
+        gameUI.Initialize();
+        print("OnRestartLevel");
+        LevelManager.Instance.ReStartLevel();
     }
-
-
 }

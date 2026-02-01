@@ -19,18 +19,22 @@ public class LevelManager : Singleton<LevelManager>
         currentLevel.Initialize();
         var characterController = FindObjectOfType<CharacterController>();
         characterController.healtCount = 3;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void UnloadLevel()
     {
         Destroy(currentLevel.gameObject);
     }
+    
 
     public void ReStartLevel()
     {
         UnloadLevel();
         LoadLevel(currentLevelIndex);
     }
+    
+   
 
     public void GoToNextLevel()
     {
