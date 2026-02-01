@@ -178,7 +178,7 @@ MonoBehaviour:
   followSpeed: 5
   minAppearInterval: 1
   maxAppearInterval: 5
-  appearDuration: 2
+  appearDuration: 6
   jumpScareChance: 0.3
   wobbleSpeed: 2
   wobbleAmount: 0.1
