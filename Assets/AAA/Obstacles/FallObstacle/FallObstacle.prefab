@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7750456701650849666}
   - component: {fileID: 2616870386748423169}
   - component: {fileID: 2806363661418178474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FallObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

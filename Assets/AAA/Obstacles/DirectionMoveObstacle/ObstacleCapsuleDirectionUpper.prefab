@@ -85,6 +85,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DirectionalMoveObstacleHuge Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 13818016869829835, guid: cca79bcab21138e408374525fe8a928a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3254672918574057317, guid: cca79bcab21138e408374525fe8a928a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DirectionalMoveObstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 5380957242733063610, guid: bbe09d1471d974d448b5c1bdd7431665, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7473438486190450196, guid: bbe09d1471d974d448b5c1bdd7431665, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
